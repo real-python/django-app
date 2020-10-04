@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<br />
+  <h2 align="center">{{ud.user.first_name}}'s Timeline</h2>
+  <p align="right">
+  <a href={% url 'create_post_url' %}>Post</a> | <a href={% url 'logout_url' %}>Logout</a>
+  </p>  
+
+  <table class="table">
+    <tbody>
+    
+    {% for i in blog %}
+      <tr>
+        <td>{{i.user.user.first_name}} {{i.user.user.last_name}}</td>
+        <td><img src={{i.user.userimage.url}} height="150" width="150"></td>
+        <td>{{i.heading}} <b>{{i.tag}}</b></td>
+        <td>{{i.content}}</td>
+        <td><img src="{{i.image.url}}" height="150" width="150"></td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

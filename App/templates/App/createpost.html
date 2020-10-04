@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create Post</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2 align="center" style="
+    font-size: 35px;
+    color: cadetblue;">Create Your Post</h2>
+<p align="right">
+<a href={% url 'home_url' %}>Home</a> | <a href={% url 'logout_url' %}>Logout</a>
+</p>
+<br />
+
+<form method="POST" action={% url 'create_post_url' %} enctype="multipart/form-data">
+{% csrf_token %}
+
+    <label>Heading</label><input type="text" name="heading"><br/><br/>
+    <label>Content</label><br>
+    <textarea name="content" rows="10" cols="100"></textarea><br/><br/>
+    <label>Tag</label><input type="text" name="mytag"><br/><br/>
+    <label>Image</label><input type="file" name="myfile"><br/><br/>
+    <button type="submit">Submit</button>
+    <button type="reset">Clear</button>
+    
+<form>
+
+
+</body>
+</html>
